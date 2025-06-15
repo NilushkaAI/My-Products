@@ -1,0 +1,374 @@
+/* General Body Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #1a202c; /* Dark background matching the image */
+    color: #e2e8f0; /* Light text color */
+    display: flex;
+    flex-direction: column; /* Changed to column to stack header, grid, and modals */
+    justify-content: flex-start; /* Align content to the top */
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Header Styles */
+header {
+    background-color: #1a202c; /* Same as body for seamless integration */
+    border-bottom: 1px solid #2d3748; /* subtle border */
+}
+
+input[type="text"] {
+    background-color: #2d3748; /* bg-gray-700 */
+    color: #e2e8f0; /* text-white */
+    border-radius: 9999px; /* rounded-full */
+    padding: 0.5rem 1rem; /* py-2 px-4 */
+    border: none;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transition for focus */
+}
+
+input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.7); /* More pronounced focus ring */
+    background-color: #3b4555; /* Slightly lighter on focus */
+}
+
+/* Custom Scrollbar for general use (if applied to other elements) */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #2d3748; /* Darker track */
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #4a5568; /* Gray thumb */
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #6b7280; /* Lighter gray on hover */
+}
+
+/* Product Card Styles */
+.product-card {
+    background-color: #2d3744; /* bg-gray-800 */
+    border-radius: 0.5rem; /* rounded-lg */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+    padding: 1.5rem; /* p-6 */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover */
+}
+
+.product-card:hover {
+    transform: translateY(-5px) scale(1.01); /* Lift and slightly enlarge */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.08); /* More pronounced shadow */
+}
+
+.product-card img {
+    width: 100%;
+    height: 10rem; /* h-40 */
+    object-fit: cover;
+    border-radius: 0.375rem; /* rounded-md */
+    margin-bottom: 1rem; /* mb-4 */
+}
+
+.product-card h3 {
+    font-size: 1.25rem; /* text-xl */
+    font-weight: 600; /* font-semibold */
+    color: #ffffff; /* text-white */
+    margin-bottom: 0.5rem; /* mb-2 */
+}
+
+.product-card p {
+    color: #a0aec0; /* text-gray-400 */
+    font-size: 0.875rem; /* text-sm */
+    margin-bottom: 1rem; /* mb-4 */
+    flex-grow: 1; /* Allow description to take available height */
+}
+
+.product-card .font-bold {
+    color: #68d391; /* text-green-400 */
+}
+
+.product-card a {
+    color: #63b3ed; /* text-blue-400 */
+    font-size: 0.875rem; /* text-sm */
+    transition: text-decoration 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+}
+
+.product-card a:hover {
+    text-decoration: underline;
+    color: #90cdf4; /* Slightly lighter blue on hover */
+}
+
+.product-card button {
+    padding: 0.5rem 1rem; /* py-2 px-4 */
+    border-radius: 0.375rem; /* rounded-md */
+    font-weight: 600; /* font-semibold */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions for hover */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Initial subtle shadow */
+}
+
+.add-to-cart-button {
+    background-color: #805ad5; /* bg-purple-600 */
+    color: #ffffff;
+}
+
+.add-to-cart-button:hover {
+    background-color: #6b46c1; /* hover:bg-purple-700 */
+    transform: translateY(-2px); /* Lift effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* More pronounced shadow */
+}
+
+.buy-now-button {
+    background-color: #ed64a6; /* bg-pink-600 */
+    color: #ffffff;
+}
+
+.buy-now-button:hover {
+    background-color: #d53f8c; /* hover:bg-pink-700 */
+    transform: translateY(-2px); /* Lift effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* More pronounced shadow */
+}
+
+
+/* Modal Overlay */
+.modal-overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* bg-black bg-opacity-50 */
+    display: flex;
+    align-items: center; /* Vertically center for overall modal position */
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 1rem; /* Sufficient padding on all sides */
+    z-index: 50;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #2d3748; /* bg-gray-800 */
+    border-radius: 0.5rem; /* rounded-lg */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* shadow-2xl */
+    width: 100%;
+    /* Max-width is handled by Tailwind's `max-w-md` in index.html */
+    max-height: calc(100vh - 2rem); /* Adjusted for 1rem padding on overlay * 2 */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds max-height */
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+    /* Explicit scrollbar styling for better visibility */
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #4a5568 #2d3748; /* For Firefox (thumb track) */
+}
+
+/* WebKit (Chrome, Safari, Edge) scrollbar styles for modal content */
+.modal-content::-webkit-scrollbar {
+    width: 8px; /* width of the scrollbar */
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: #2d3748; /* color of the tracking area */
+    border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: #4a5568; /* color of the scroll thumb */
+    border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: #6b7280; /* color of the scroll thumb on hover */
+}
+
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0);
+}
+
+
+/* Modal Header */
+.modal-header {
+    padding: 0.5rem 0.75rem; /* Further reduced vertical and horizontal padding for header */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #4a5568; /* border-b border-gray-700 */
+}
+
+.modal-header h3 {
+    font-size: 1rem; /* Reduced from 1.125rem to 1rem */
+    font-weight: 600; /* font-semibold */
+    color: #ffffff; /* text-white */
+    margin-bottom: 0;
+}
+
+.modal-header #closeBankDetailsModal,
+.modal-header #closeTermsModal {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem; /* Reduced from 1.75rem to 1.5rem */
+    line-height: 1;
+    color: #ffffff; /* text-white */
+    cursor: pointer;
+    padding: 0;
+    box-shadow: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.modal-header #closeBankDetailsModal:hover,
+.modal-header #closeTermsModal:hover {
+    color: #cbd5e0; /* hover:text-gray-200 */
+    transform: rotate(90deg); /* Subtle rotate effect */
+}
+
+
+/* Modal Body */
+.modal-body {
+    padding: 0.75rem; /* Reduced from 1rem to 0.75rem */
+    color: #ffffff; /* Default text color for modal body */
+}
+
+.modal-body p {
+    color: #e2e8f0; /* text-white */
+    font-size: 0.8rem; /* Reduced from 0.875rem to 0.8rem */
+    line-height: 1.3; /* Slightly reduced line height for denser text */
+    margin-bottom: 0.5rem; /* Reduced from 0.75rem to 0.5rem */
+}
+
+.modal-body strong {
+    color: #e2e8f0; /* text-gray-200 for strong text in dark mode */
+}
+
+.modal-body > div.bg-gray-700 { /* Targeting the bank details block */
+    padding: 0.75rem; /* Reduced padding for bank details block */
+    margin-bottom: 0.75rem; /* Reduced margin for bank details block */
+}
+
+.modal-body > p:last-of-type { /* Targeting the last paragraph before WhatsApp button */
+    margin-bottom: 0.75rem; /* Reduced margin-bottom */
+}
+
+
+/* Modal Buttons */
+.modal-body button, .modal-footer button {
+    padding: 0.4rem 1rem; /* Further reduced padding */
+    border-radius: 0.375rem; /* rounded-md */
+    font-size: 0.85rem; /* Further reduced font size for buttons */
+    font-weight: 500; /* medium */
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#cancelTerms {
+    background-color: #2d3748; /* bg-gray-800 */
+    border: 1px solid #4a5568; /* border border-gray-700 */
+    color: #e2e8f0; /* text-white */
+}
+
+#cancelTerms:hover {
+    background-color: #4a5568; /* hover:bg-gray-700 */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#acceptTerms {
+    background-color: #2563eb; /* bg-blue-600 */
+    color: #ffffff;
+}
+
+#acceptTerms:hover {
+    background-color: #1d4ed8; /* hover:bg-blue-700 */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* WhatsApp Button */
+.modal-body .inline-flex {
+    padding: 0.6rem 1.25rem; /* Adjusted padding to be consistent */
+    background-color: #48bb78; /* bg-green-500 */
+    color: #ffffff;
+    border-radius: 0.375rem; /* rounded-md */
+    font-size: 0.85rem; /* Reduced from 0.9rem to 0.85rem */
+    font-weight: 600; /* font-semibold */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    margin-bottom: 0.75rem; /* Reduced margin-bottom */
+}
+
+.modal-body .inline-flex:hover {
+    background-color: #38a169; /* hover:bg-green-600 */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal Footer */
+.modal-footer {
+    padding: 0.5rem 0.75rem; /* Reduced padding */
+    border-top: 1px solid #4a5568; /* border-t border-gray-700 */
+}
+
+/* Specific buttons in footer and cart dropdown */
+#downloadPdfButton, #okBankDetails, #proceedToCheckoutButton, #clearCartButton, .remove-item-button {
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#downloadPdfButton:hover, #okBankDetails:hover, #proceedToCheckoutButton:hover, #clearCartButton:hover, .remove-item-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Specific styles for clear and remove buttons */
+#clearCartButton {
+    background-color: #4a5568; /* bg-gray-600 */
+}
+#clearCartButton:hover {
+    background-color: #2d3748; /* hover:bg-gray-700 */
+}
+
+.remove-item-button {
+    background-color: #e53e3e; /* bg-red-500 */
+}
+.remove-item-button:hover {
+    background-color: #c53030; /* hover:bg-red-600 */
+}
+
+
+/* Hide elements with Tailwind's hidden class */
+.hidden {
+    display: none !important;
+}
+
+/* Custom Scrollbar for Cart Dropdown (kept for consistency, though modal-content now has its own) */
+#cartItemsList::-webkit-scrollbar {
+    width: 8px; /* width of the scrollbar */
+}
+
+#cartItemsList::-webkit-scrollbar-track {
+    background: #2d3748; /* color of the tracking area */
+    border-radius: 10px;
+}
+
+#cartItemsList::-webkit-scrollbar-thumb {
+    background: #4a5568; /* color of the scroll thumb */
+    border-radius: 10px;
+}
+
+#cartItemsList::-webkit-scrollbar-thumb:hover {
+    background: #6b7280; /* color of the scroll thumb on hover */
+}
